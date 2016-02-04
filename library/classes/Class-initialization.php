@@ -451,7 +451,9 @@ class Initialization {
 	 * Show an admin notice if .htaccess isn't writable
 	 */
 	function is_htaccess_writable() {
-		if ( ! is_writable( get_home_path() . '.htaccess' ) ) {
+		if ( ! is_writable( get_home_path() . '.htaccess' ) && strpos( strtolower( $_SERVER['SERVER_SOFTWARE'] ),
+				'apache' ) !== false
+		) {
 			if ( current_user_can( 'administrator' ) ) {
 				add_action( 'admin_notices', create_function( '',
 					"echo '<div class=\"error\"><p>" . sprintf( __( 'Please make sure your <a href="%s">.htaccess</a> file is writable ',
