@@ -1,1 +1,3 @@
-# WP BasetTeme
+# WP BaseTheme
+
+TODO: Write me...

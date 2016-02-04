@@ -1,0 +1,27 @@
+// Fonts
+@import "common/fonts";
+
+// Common variables
+@import "common/settings";
+
+// Automatically injected Bower dependencies via wiredep
+// Don't edit this manually or you'll get ur ass kicked by midgets...
+
+// bower:scss
+@import "../bower_components/font-awesome/scss/font-awesome.scss";
+@import "../bower_components/foundation/scss/foundation.scss";
+// endbower
+
+@import "common/global";
+@import "common/mixins";
+
+// Components
+@import "components/wp-classes";
+@import "components/buttons";
+@import "components/comments";
+@import "components/forms";
+
+// Layouts & pages
+@import "layouts/header";
+@import "layouts/sidebar";
+@import "layouts/footer";
