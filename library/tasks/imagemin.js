@@ -4,7 +4,7 @@ var imagemin = require('gulp-imagemin');
 var config = require('./config');
 
 gulp.task('imagemin', function () {
-  return gulp.src(config.paths.source + '/images/**/*.{jpg,jpeg,png,gif,svg,ico}')
+  return gulp.src(config.paths.source + '/images/**/*.{jpg,jpeg,png,gif,svg,ico,json,xml}')
     .pipe(imagemin({
       progressive: true,
       interlaced: true,
