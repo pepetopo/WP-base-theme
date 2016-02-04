@@ -222,6 +222,43 @@ add_filter( 'json_url_prefix', function ( $prefix ) {
 } );
 
 /**
+ * Add favicons to head
+ *
+ * @return string
+ */
+function nord_favicons() {
+
+	$image_uri = \Nord\UTILS()->get_image_uri();
+
+	echo <<<EOT
+	\n
+	<link rel="apple-touch-icon" sizes="57x57" href="{$image_uri}/favicons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="{$image_uri}/favicons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="{$image_uri}/favicons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="{$image_uri}/favicons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="{$image_uri}/favicons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="{$image_uri}/favicons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="{$image_uri}/favicons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="{$image_uri}/favicons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="{$image_uri}/favicons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="{$image_uri}/favicons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="{$image_uri}/favicons/favicon-194x194.png" sizes="194x194">
+	<link rel="icon" type="image/png" href="{$image_uri}/favicons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="{$image_uri}/favicons/android-chrome-192x192.png" sizes="192x192">
+	<link rel="icon" type="image/png" href="{$image_uri}/favicons/favicon-16x16.png" sizes="16x16">
+
+	<link rel="manifest" href="{$image_uri}/favicons/manifest.json">
+
+	<meta name="msapplication-config" content="{$image_uri}/favicons/browserconfig.xml" />
+	<meta name="theme-color" content="#ffffff">
+	\n
+EOT;
+}
+
+add_action( 'wp_head', 'nord_favicons', 999 );
+
+/**
  * Helper to get all classes from folder
  *
  * @param        $dir
