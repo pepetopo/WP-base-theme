@@ -34,15 +34,6 @@
          */
         $('.match-height').matchHeight();
 
-        $('.search__button').on('click', 'a', function (e) {
-          $(this).toggleClass('search__expanded');
-          $('.header__search')
-            .stop(true, false)
-            .slideToggle();
-
-          e.preventDefault();
-        });
-
       },
 
       finalize: function () {
