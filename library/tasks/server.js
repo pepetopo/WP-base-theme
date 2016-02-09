@@ -5,6 +5,8 @@ var config = require('./config');
 gulp.task('server', function () {
   browserSync.init({
     files: ['{library,partials,templates}/**/*.php', '*.php'],
+    online: true,
+    open: false,
     proxy: config.devUrl,
     snippetOptions: {
       whitelist: ['/wp-admin/admin-ajax.php'],
