@@ -29,7 +29,7 @@ define( 'TEXT_DOMAIN', 'nord' );
  * @example:[$name(:str), $width(:int), $height(:int), $crop(:bool|arr([x_crop_pos,y_crop_pos]))]
  */
 $imagesizes = [
-	[ 'article_lift', 360, 200, true ]
+	//[ 'article_lift', 360, 200, true ]
 ];
 
 /**

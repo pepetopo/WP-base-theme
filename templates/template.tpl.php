@@ -1,7 +1,8 @@
 <?php
 
 /**
- * A Dummy template-file
+ * A Dummy template
+ *
  * @package nord_
  *
  * Template Name: Dummy-template

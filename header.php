@@ -1,3 +1,13 @@
+<?php
+
+/**
+ * The main Header template
+ *
+ * @package nord_
+ */
+
+?>
+
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
