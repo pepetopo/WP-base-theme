@@ -24,15 +24,6 @@ define( 'FEED_URI', 'http://omnipartners.fi/feed' );
 define( 'TEXT_DOMAIN', 'nord' );
 
 /**
- * Set custom imagesizes
- *
- * @example:[$name(:str), $width(:int), $height(:int), $crop(:bool|arr([x_crop_pos,y_crop_pos]))]
- */
-$imagesizes = [
-	//[ 'article_lift', 360, 200, true ]
-];
-
-/**
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
@@ -46,7 +37,16 @@ if ( ! function_exists( 'nord_setup' ) ) :
 
 	function nord_setup() {
 
-		global $cap, $content_width, $imagesizes;
+		global $cap, $content_width;
+
+		/**
+		 * Set custom imagesizes
+		 *
+		 * @example:[$name(:str), $width(:int), $height(:int), $crop(:bool|arr([x_crop_pos,y_crop_pos]))]
+		 */
+		$imagesizes = [
+			//[ 'article_lift', 360, 200, true ]
+		];
 
 		/**
 		 * Load textdomain
