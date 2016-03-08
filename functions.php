@@ -265,13 +265,18 @@ add_action( 'wp_head', 'nord_favicons', 999 );
  * @param string $suffix
  */
 function require_files( $dir, $suffix = 'php' ) {
-	$dir   = trailingslashit( $dir );
-	$files = new DirectoryIterator( $dir );
+    $dir = trailingslashit( $dir );
 
-	foreach ( $files as $file ) {
-		if ( ! $file->isDot() && $file->getExtension() === $suffix ) {
-			$filename = $dir . $file->getFilename();
-			require_once( $filename );
-		}
-	}
+    if ( ! is_dir( $dir ) ) {
+        return;
+    }
+
+    $files = new DirectoryIterator( $dir );
+
+    foreach ( $files as $file ) {
+        if ( ! $file->isDot() && $file->getExtension() === $suffix ) {
+            $filename = $dir . $file->getFilename();
+            require_once( $filename );
+        }
+    }
 }
