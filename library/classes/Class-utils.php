@@ -204,7 +204,7 @@ class Utils {
 	 * @return array|false
 	 */
 	public function get_default_image( $size = 'full' ) {
-		$image_id = isset( get_option( 'omni_general_options' )['omni_default_image_id'] ) ? get_option( 'omni_general_options' )['omni_default_image_id'] : null;
+		$image_id = isset( get_option( 'nord_general_options' )['nord_default_image_id'] ) ? get_option( 'nord_general_options' )['nord_default_image_id'] : null;
 
 		return wp_get_attachment_image_src( $image_id, $size )[0];
 	}

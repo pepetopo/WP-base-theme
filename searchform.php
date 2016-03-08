@@ -12,7 +12,7 @@
     <div>
         <label class="show-for-sr" for="s"><?php echo _x( 'Search for:', 'label' ); ?></label>
         <input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s"
-               placeholder="<?php _e( 'Input search terms', 'omni' ); ?>"/>
+               placeholder="<?php _e( 'Input search terms', TEXT_DOMAIN ); ?>"/>
         <button type="submit"><?php echo esc_attr_x( 'Search', 'submit button' ); ?> <i class="fa fa-search"></i></button>
     </div>
 </form>
