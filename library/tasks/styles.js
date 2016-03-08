@@ -8,6 +8,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var plumber = require('gulp-plumber');
+var pixrem = require('gulp-pixrem');
 var config = require('./config');
 
 gulp.task('styles', function () {
@@ -36,6 +37,7 @@ gulp.task('styles', function () {
         'opera 12'
       ]
     }))
+    .pipe(pixrem())
     .pipe(gulpif(!argv.production, sourcemaps.write('.')))
     .pipe(gulp.dest(config.paths.build + '/styles'));
 });
