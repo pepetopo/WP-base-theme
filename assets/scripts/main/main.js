@@ -12,7 +12,7 @@
 
 (function ($) {
 
-  var omni = {
+  var nord = {
 
     // Helpers
     isMobile: function () {
@@ -47,7 +47,7 @@
   var UTIL = {
     fire: function (func, funcname, args) {
       var fire;
-      var namespace = omni;
+      var namespace = nord;
       funcname = (funcname === undefined) ? 'init' : funcname;
       fire = func !== '';
       fire = fire && namespace[func];

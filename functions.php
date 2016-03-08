@@ -24,15 +24,6 @@ define( 'FEED_URI', 'http://omnipartners.fi/feed' );
 define( 'TEXT_DOMAIN', 'nord' );
 
 /**
- * Set custom imagesizes
- *
- * @example:[$name(:str), $width(:int), $height(:int), $crop(:bool|arr([x_crop_pos,y_crop_pos]))]
- */
-$imagesizes = [
-	//[ 'article_lift', 360, 200, true ]
-];
-
-/**
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
@@ -46,7 +37,16 @@ if ( ! function_exists( 'nord_setup' ) ) :
 
 	function nord_setup() {
 
-		global $cap, $content_width, $imagesizes;
+		global $cap, $content_width;
+
+		/**
+		 * Set custom imagesizes
+		 *
+		 * @example:[$name(:str), $width(:int), $height(:int), $crop(:bool|arr([x_crop_pos,y_crop_pos]))]
+		 */
+		$imagesizes = [
+			//[ 'article_lift', 360, 200, true ]
+		];
 
 		/**
 		 * Load textdomain
@@ -265,13 +265,18 @@ add_action( 'wp_head', 'nord_favicons', 999 );
  * @param string $suffix
  */
 function require_files( $dir, $suffix = 'php' ) {
-	$dir   = trailingslashit( $dir );
-	$files = new DirectoryIterator( $dir );
+    $dir = trailingslashit( $dir );
 
-	foreach ( $files as $file ) {
-		if ( ! $file->isDot() && $file->getExtension() === $suffix ) {
-			$filename = $dir . $file->getFilename();
-			require_once( $filename );
-		}
-	}
+    if ( ! is_dir( $dir ) ) {
+        return;
+    }
+
+    $files = new DirectoryIterator( $dir );
+
+    foreach ( $files as $file ) {
+        if ( ! $file->isDot() && $file->getExtension() === $suffix ) {
+            $filename = $dir . $file->getFilename();
+            require_once( $filename );
+        }
+    }
 }
