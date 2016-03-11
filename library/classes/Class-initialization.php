@@ -357,8 +357,8 @@ class Initialization {
 	}
 
 	/**
-	 * Kill bloginfo('pingback_url')
-	 */
+	 * Kill bloginfo('pingback_url') <---Disabled as it causes ajax not working on some servers
+	
 	function kill_pingback_url( $output, $show ) {
 		if ( $show === 'pingback_url' ) {
 			$output = '';
@@ -366,6 +366,7 @@ class Initialization {
 
 		return $output;
 	}
+	 */
 
 	/**
 	 * Disable XMLRPC call
