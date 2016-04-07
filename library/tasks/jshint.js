@@ -5,7 +5,7 @@ var jshint = require('gulp-jshint');
 var config = require('./config');
 
 gulp.task('jshint', function () {
-  return gulp.src(config.paths.source + '/scripts/main/**/*.js')
+  return gulp.src(config.paths.source + '/js/main/**/*.js')
     .pipe(plumber({errorHandler: notify.onError(config.errorMsg)}))
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))

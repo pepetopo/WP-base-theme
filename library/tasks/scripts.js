@@ -10,11 +10,11 @@ var sourcemaps = require('gulp-sourcemaps');
 var config = require('./config');
 
 gulp.task('scripts', ['jshint'], function () {
-  return gulp.src(config.paths.source + '/scripts/main/**/*.js')
+  return gulp.src(config.paths.source + '/js/main/**/*.js')
     .pipe(plumber({errorHandler: notify.onError(config.errorMsg)}))
     .pipe(gulpif(!argv.production, sourcemaps.init()))
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(gulpif(!argv.production, sourcemaps.write('.')))
-    .pipe(gulp.dest(config.paths.build + '/scripts'));
+    .pipe(gulp.dest(config.paths.build + '/js'));
 });

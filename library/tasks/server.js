@@ -16,7 +16,7 @@ gulp.task('server', function () {
   });
 
   gulp.watch(config.paths.source + '/styles/**/*', ['styles']).on('change', browserSync.reload);
-  gulp.watch(config.paths.source + '/scripts/**/*', ['jshint', 'scripts']).on('change', browserSync.reload);
+  gulp.watch(config.paths.source + '/js/**/*', ['jshint', 'scripts']).on('change', browserSync.reload);
   gulp.watch(config.paths.source + '/images/**/*', ['imagemin']).on('change', browserSync.reload);
 
 });

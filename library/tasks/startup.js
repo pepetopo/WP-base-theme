@@ -47,7 +47,7 @@ gulp.task('startup', ['clean', 'wiredep', 'imagemin'], function () {
     .pipe(plumber())
     .pipe(concat('backend.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest(config.paths.build + '/scripts'));
+    .pipe(gulp.dest(config.paths.build + '/js'));
 
   /**
    * Inject banner to style.css
@@ -59,11 +59,11 @@ gulp.task('startup', ['clean', 'wiredep', 'imagemin'], function () {
    */
   var vendorFiles = mainBowerFiles({filter: /.*\.js/});
 
-  gulp.src(vendorFiles.concat(glob.sync(config.paths.source + '/scripts/vendor/**/*.js')))
+  gulp.src(vendorFiles.concat(glob.sync(config.paths.source + '/js/vendor/**/*.js')))
     .pipe(plumber({errorHandler: notify.onError(config.errorMsg)}))
     .pipe(gulpif(!argv.production, sourcemaps.init()))
     .pipe(concat('vendor.min.js'))
     .pipe(uglify())
     .pipe(gulpif(!argv.production, sourcemaps.write('.')))
-    .pipe(gulp.dest(config.paths.build + '/scripts'));
+    .pipe(gulp.dest(config.paths.build + '/js'));
 });

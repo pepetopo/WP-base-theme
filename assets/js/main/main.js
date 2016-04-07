@@ -12,7 +12,7 @@
 
 (function ($) {
 
-  var nord = {
+  var NordStarter = {
 
     // Helpers
     isMobile: function () {
@@ -47,7 +47,7 @@
   var UTIL = {
     fire: function (func, funcname, args) {
       var fire;
-      var namespace = nord;
+      var namespace = NordStarter;
       funcname = (funcname === undefined) ? 'init' : funcname;
       fire = func !== '';
       fire = fire && namespace[func];

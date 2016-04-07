@@ -5,7 +5,7 @@ globalConfig = require('../../package.json').config;
  * @type {{title: string, message: string}}
  */
 globalConfig.errorMsg = {
-  title: 'Error, prkl!!',
+  title: 'Error :(!!',
   message: '<%= error.message %>'
 };
 
