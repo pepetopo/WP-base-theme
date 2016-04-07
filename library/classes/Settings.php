@@ -207,7 +207,7 @@ class Settings {
  */
 if ( defined( 'CMB2_LOADED' ) ) :
 
-	$admin = new Settings();
+	$admin = new Settings;
 	$admin->hooks();
 
 	/**

@@ -2,10 +2,6 @@
 
 namespace Nord;
 
-/**
- * Class Initialization
- * @package Nord
- */
 class Initialization {
 
 	/**
@@ -358,14 +354,14 @@ class Initialization {
 
 	/**
 	 * Kill bloginfo('pingback_url') <---Disabled as it causes ajax not working on some servers
-	
-	function kill_pingback_url( $output, $show ) {
-		if ( $show === 'pingback_url' ) {
-			$output = '';
-		}
-
-		return $output;
-	}
+	 *
+	 * function kill_pingback_url( $output, $show ) {
+	 * if ( $show === 'pingback_url' ) {
+	 * $output = '';
+	 * }
+	 *
+	 * return $output;
+	 * }
 	 */
 
 	/**
@@ -673,4 +669,4 @@ class Initialization {
 /**
  * Construct Initialization-Class
  */
-new Initialization();
+new Initialization;

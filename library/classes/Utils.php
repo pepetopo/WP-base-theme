@@ -2,10 +2,6 @@
 
 namespace Nord;
 
-/**
- * Class Utils
- * @package Nord
- */
 class Utils {
 
 	/**
@@ -39,7 +35,8 @@ class Utils {
 						'<span class="meta-nav">' . _x( '&larr;', 'Previous post link',
 							TEXT_DOMAIN ) . '</span> %title' ); ?>
 					<?php next_post_link( '<li class="nav-next next">%link</li>',
-						'%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', TEXT_DOMAIN ) . '</span>' ); ?>
+						'%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link',
+							TEXT_DOMAIN ) . '</span>' ); ?>
 
 				<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 					<?php if ( get_next_posts_link() ) : ?>
@@ -209,12 +206,3 @@ class Utils {
 		return wp_get_attachment_image_src( $image_id, $size )[0];
 	}
 }
-
-/**
- * Return helper as function
- */
-if ( ! function_exists( 'UTILS' ) ):
-	function UTILS() {
-		return new Utils();
-	}
-endif;
