@@ -3,7 +3,7 @@
 /**
  * The main template for listing articles on index.php
  *
- * @package nord_
+ * @package NordStarter
  *
  */
 

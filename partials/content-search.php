@@ -3,7 +3,7 @@
 /**
  * The main template for search-results
  *
- * @package nord_
+ * @package NordStarter
  *
  */
 

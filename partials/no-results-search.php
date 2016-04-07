@@ -3,7 +3,7 @@
 /**
  * The No results found -template
  *
- * @package nord_
+ * @package NordStarter
  *
  */
 

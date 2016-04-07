@@ -3,7 +3,7 @@
 /**
  * The main template for single article
  *
- * @package nord_
+ * @package NordStarter
  *
  */
 

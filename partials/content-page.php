@@ -3,7 +3,7 @@
 /**
  * The main template for page
  *
- * @package nord_
+ * @package NordStarter
  *
  */
 
