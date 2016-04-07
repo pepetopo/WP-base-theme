@@ -3,8 +3,13 @@
 /**
  * Main functions and definitions
  *
- * @package Nord
+ * @package NordStarter
  */
+
+/**
+ * Require helpers
+ */
+require dirname( __FILE__ ) . '/library/functions/helpers.php';
 
 /**
  * Set theme name which will be referenced from style & script registrations
@@ -76,12 +81,17 @@ if ( ! function_exists( 'nord_setup' ) ) :
 		/**
 		 * Widgets (nav-menus & widgetized areas)
 		 */
-		require dirname( __FILE__ ) . '/library/functions/widgets.php';
+		require_files( dirname( __FILE__ ) . '/library/widgets' );
+
+		/**
+		 * Functions and helpers
+		 */
+		require_files( dirname( __FILE__ ) . '/library/functions' );
 
 		/**
 		 * WP-BEM
 		 */
-		require dirname( __FILE__ ) . '/library/wordpress-bem/wordpress-bem.php';
+		require dirname( __FILE__ ) . '/library/classes/wordpress-bem/wordpress-bem.php';
 
 		/**
 		 * Theme supports
@@ -146,7 +156,7 @@ function nord_admin_scripts() {
 
 	wp_enqueue_script(
 		'nord-admin',
-		get_template_directory_uri() . '/assets/build/scripts/backend.min.js',
+		get_template_directory_uri() . '/assets/build/js/backend.min.js',
 		[ ],
 		$nord_theme->get( 'Version' )
 	);
@@ -177,7 +187,7 @@ function nord_scripts() {
 	 */
 	wp_enqueue_script(
 		'nord-vendor',
-		get_template_directory_uri() . '/assets/build/scripts/vendor.min.js',
+		get_template_directory_uri() . '/assets/build/js/vendor.min.js',
 		[ 'jquery' ],
 		$nord_theme->get( 'Version' ),
 		true
@@ -188,7 +198,7 @@ function nord_scripts() {
 	 */
 	wp_enqueue_script(
 		'nord-theme',
-		get_template_directory_uri() . '/assets/build/scripts/main.min.js',
+		get_template_directory_uri() . '/assets/build/js/main.min.js',
 		[ 'nord-vendor' ],
 		$nord_theme->get( 'Version' ),
 		true
@@ -208,6 +218,22 @@ function nord_scripts() {
 add_action( 'wp_enqueue_scripts', 'nord_scripts' );
 
 /**
+ * Allow svg-uploads
+ *
+ * @param $mimes
+ *
+ * @return mixed
+ */
+function nord_svg_mime_types( $mimes ) {
+	$mimes['svg'] = 'image/svg+xml';
+
+	return $mimes;
+}
+
+add_filter( 'upload_mimes', 'nord_svg_mime_types' );
+
+
+/**
  * Change default WP-API endpoints
  *
  * @return mixed|void
@@ -220,63 +246,3 @@ add_filter( 'rest_url_prefix', function ( $prefix ) {
 add_filter( 'json_url_prefix', function ( $prefix ) {
 	return 'api';
 } );
-
-/**
- * Add favicons to head
- *
- * @return string
- */
-function nord_favicons() {
-
-	$image_uri = \Nord\UTILS()->get_image_uri();
-
-	echo <<<EOT
-	\n
-	<link rel="apple-touch-icon" sizes="57x57" href="{$image_uri}/favicons/apple-touch-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="{$image_uri}/favicons/apple-touch-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="{$image_uri}/favicons/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="{$image_uri}/favicons/apple-touch-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="{$image_uri}/favicons/apple-touch-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="{$image_uri}/favicons/apple-touch-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="{$image_uri}/favicons/apple-touch-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="{$image_uri}/favicons/apple-touch-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="{$image_uri}/favicons/apple-touch-icon-180x180.png">
-
-	<link rel="icon" type="image/png" href="{$image_uri}/favicons/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="{$image_uri}/favicons/favicon-194x194.png" sizes="194x194">
-	<link rel="icon" type="image/png" href="{$image_uri}/favicons/favicon-96x96.png" sizes="96x96">
-	<link rel="icon" type="image/png" href="{$image_uri}/favicons/android-chrome-192x192.png" sizes="192x192">
-	<link rel="icon" type="image/png" href="{$image_uri}/favicons/favicon-16x16.png" sizes="16x16">
-
-	<link rel="manifest" href="{$image_uri}/favicons/manifest.json">
-
-	<meta name="msapplication-config" content="{$image_uri}/favicons/browserconfig.xml" />
-	<meta name="theme-color" content="#ffffff">
-	\n
-EOT;
-}
-
-add_action( 'wp_head', 'nord_favicons', 999 );
-
-/**
- * Helper to get all classes from folder
- *
- * @param        $dir
- * @param string $suffix
- */
-function require_files( $dir, $suffix = 'php' ) {
-    $dir = trailingslashit( $dir );
-
-    if ( ! is_dir( $dir ) ) {
-        return;
-    }
-
-    $files = new DirectoryIterator( $dir );
-
-    foreach ( $files as $file ) {
-        if ( ! $file->isDot() && $file->getExtension() === $suffix ) {
-            $filename = $dir . $file->getFilename();
-            require_once( $filename );
-        }
-    }
-}
