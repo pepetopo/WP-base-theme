@@ -20,7 +20,7 @@ get_header();
 	</section>
 
 	<section class="pagination">
-		<?php echo \Nord\UTILS()->pagination(); ?>
+		<?php echo UTILS()->pagination(); ?>
 	</section>
 
 <?php get_footer(); ?>
