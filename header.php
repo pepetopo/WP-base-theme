@@ -3,7 +3,7 @@
 /**
  * The main Header template
  *
- * @package nord_
+ * @package NordStarter
  */
 
 ?>

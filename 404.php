@@ -3,7 +3,7 @@
 /**
  * The main 404-wrapper
  *
- * @package nord_
+ * @package NordStarter
  */
 
 get_header();

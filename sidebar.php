@@ -3,7 +3,7 @@
 /**
  * The main sidebar-wrapper
  *
- * @package nord_
+ * @package NordStarter
  */
 
 get_header();

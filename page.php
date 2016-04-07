@@ -3,7 +3,7 @@
 /**
  * The main page-template wrapper
  *
- * @package nord_
+ * @package NordStarter
  */
 
 get_header();

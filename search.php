@@ -3,7 +3,7 @@
 /**
  * The main search-wrapper
  *
- * @package nord_
+ * @package NordStarter
  */
 
 get_header();

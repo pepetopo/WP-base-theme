@@ -3,7 +3,7 @@
 /**
  * The main search-form wrapper
  *
- * @package nord_
+ * @package NordStarter
  */
 
 ?>

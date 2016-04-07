@@ -3,7 +3,7 @@
 /**
  * The main archive-template
  *
- * @package nord_
+ * @package NordStarter
  */
 
 get_header();

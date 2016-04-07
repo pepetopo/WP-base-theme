@@ -3,7 +3,7 @@
 /**
  * A Dummy template
  *
- * @package nord_
+ * @package NordStarter
  *
  * Template Name: Dummy-template
  * Description: Dummy-template

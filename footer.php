@@ -3,7 +3,7 @@
 /**
  * The main footer-template
  *
- * @package nord_
+ * @package NordStarter
  */
 
 ?>

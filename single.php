@@ -3,7 +3,7 @@
 /**
  * The main post-template-wrapper
  *
- * @package nord_
+ * @package NordStarter
  */
 
 get_header();
@@ -13,7 +13,7 @@ get_header();
 <?php do_action( 'nord_before_page' ); ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-	<?php get_template_part( 'partials/content', 'single' ); ?>
+	<?php get_template_part( 'partials/content', get_post_type() ); ?>
 <?php endwhile; endif; ?>
 
 <?php
