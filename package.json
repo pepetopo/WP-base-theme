@@ -1,7 +1,7 @@
 {
-  "name": "wp-basetheme",
+  "name": "wp-nordstarter",
   "version": "0.1.0",
-  "description": "WP-Basetheme",
+  "description": "WP-NordStarter",
   "author": "Wille <ville.ristimaki@nordsoftware.com>",
   "private": true,
   "licenses": [
@@ -23,14 +23,14 @@
       "build": "./assets/build",
       "source": "./assets"
     },
-    "devUrl": "http://nordsoftware.dev",
+    "devUrl": "http://mylocalurl.dev",
     "themeHeader": [
       "/*",
-      "Theme Name: Nord WP-Basetheme",
+      "Theme Name: WP-NordStarter",
       "Theme URI: http://nordsoftware.com",
-      "Author: Nord",
+      "Author: Nord Sorftware",
       "Author URI: http://nordsoftware.com",
-      "Description: Nord WP-Basetheme",
+      "Description: WP-NordStarter",
       "Version: 1.0",
       "License: GNU General Public License v2 or later",
       "License URI: http://www.gnu.org/licenses/gpl-2.0.html",
@@ -42,7 +42,7 @@
   "scripts": {
     "start": "bower install && gulp",
     "build": "bower install && gulp build --production",
-    "test": "gulp jshint && jscs gulpfile.js ./assets/scripts/**/*.js --reporter=console"
+    "test": "gulp jshint && jscs gulpfile.js ./assets/js/**/*.js --reporter=console"
   },
   "engines": {
     "node": ">= 0.12.0",
