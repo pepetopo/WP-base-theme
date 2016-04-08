@@ -25,11 +25,6 @@
       init: function () {
 
         /**
-         * Init foundation
-         */
-        $(document).foundation();
-
-        /**
          * Add match-height
          */
         $('.match-height').matchHeight();

@@ -15,5 +15,6 @@
 }
 
 .comment-form input[type="submit"] {
-  @include button();
+  @extend .btn;
+  @extend .btn-default;
 }

@@ -10,14 +10,14 @@
     "font-awesome": "fontawesome#~4.5.0",
     "modernizr": "2.8.2",
     "respond": "~1.4.2",
-    "foundation": "~5.5.3",
-    "matchHeight": "matchheight#~0.6.0"
+    "matchHeight": "matchheight#~0.6.0",
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.6"
   },
   "overrides": {
     "modernizr": {
       "main": "./modernizr.js"
     },
-    "foundation": {
+    "bootstrap-sass": {
       "dependencies": {}
     },
     "jquery.cookie": {
