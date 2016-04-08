@@ -1,2 +1,7 @@
 // Google fonts
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic);
+
+$fa-font-path: "../fonts" !default;
+
+// Uncomment to set FontAwesome to serve fonts from CDN
+//$fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.5.0/fonts" !default;
