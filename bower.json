@@ -16,6 +16,15 @@
   "overrides": {
     "modernizr": {
       "main": "./modernizr.js"
+    },
+    "foundation": {
+      "dependencies": {}
+    },
+    "jquery.cookie": {
+      "dependencies": {}
+    },
+    "jquery-placeholder": {
+      "dependencies": {}
     }
   }
 }
