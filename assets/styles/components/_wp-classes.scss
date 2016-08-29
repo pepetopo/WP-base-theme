@@ -32,7 +32,7 @@
 
 // Captions
 .wp-caption {
-  @extend .thumbnail;
+  @extend .th;
 }
 
 //Avoiding overflow
@@ -48,6 +48,5 @@ figure {
 
 // Text meant only for screen readers
 .screen-reader-text {
-  @extend .sr-only;
-  @extend .sr-only-focusable;
+  @extend .show-for-sr;
 }
