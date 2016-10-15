@@ -1,17 +1,11 @@
-// Fonts
 @import "common/fonts";
-
-// Common variables
 @import "common/settings";
 
-// Automatically injected Bower dependencies via wiredep
-// Don't edit this manually or you'll get ur ass kicked by midgets...
+// Import npm dependencies
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~font-awesome/scss/font-awesome";
 
-// bower:scss
-@import "../bower_components/font-awesome/scss/font-awesome.scss";
-@import "../bower_components/foundation/scss/foundation.scss";
-// endbower
-
+// Global
 @import "common/global";
 @import "common/mixins";
 
@@ -20,6 +14,7 @@
 @import "components/buttons";
 @import "components/comments";
 @import "components/forms";
+@import "components/tinymce";
 
 // Layouts & pages
 @import "layouts/header";
