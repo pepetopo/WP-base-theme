@@ -190,7 +190,7 @@ class Utils {
 	 * @return string
 	 */
 	public function get_image_uri() {
-		return get_template_directory_uri() . '/assets/build/images';
+		return asset_uri('images');
 	}
 
 	/**
