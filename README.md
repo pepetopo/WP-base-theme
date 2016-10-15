@@ -115,7 +115,6 @@ Place your images, styles & javascripts here (they get smushed and build to `bui
 * `functions`: The place for WP's `hooks`, `pre_get_posts` & misc. helper functions can be added here
 * `lang`: i18n for the theme
 * `metaboxes`: Metabox-logic (CMB2 etc.) which is not tied to post-types can be added here
-* `tasks`: Gulp-tasks
 * `widgets`: WP-nav menus & widgets
 
 **3. partials**
@@ -126,9 +125,6 @@ Wordpress required template-files
 
 **5. custom-templates**
 Add your custom WP template-files here.
-
-## Build
-Build the front-end depencies without sourcemaps by running `npm run build`.
 
 ## Support
 
