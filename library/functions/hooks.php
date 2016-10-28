@@ -1,15 +1,6 @@
 <?php
 
 /**
- * After user is registered, display the full toolbar on rich edit
- *
- * @hook user_register
- */
-add_action( 'user_register', function ( $user_id ) {
-    update_user_meta( $user_id, 'wp_user-settings', 'hidetb=1' );
-}, 10, 1 );
-
-/**
  * Filter video oembeds and wrap with Foundations flex-video
  *
  * @param $html
@@ -178,9 +169,10 @@ add_filter( 'post_gallery', function ( $defaults = '', $attr ) {
 }, 10, 2 );
 
 /**
- * Remove h1-tag from tinyMCE
+ * Remove h1-tag from tinyMCE, show second row by default
  */
 add_filter( 'tiny_mce_before_init', function ( $init ) {
+    $tinymce['wordpress_adv_hidden'] = FALSE;
     $init['block_formats'] = "Paragraph=p;Address=address;Pre=pre;Heading 2=h2;Heading 3=h3;Heading 4=h4";
 
     return $init;
