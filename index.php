@@ -1,6 +1,3 @@
 <?php
 
-if (defined('ABSPATH')) {
-    update_option('template', get_option('template') . '/templates');
-}
-die("...");
+include __DIR__ . '/templates/index.php';
