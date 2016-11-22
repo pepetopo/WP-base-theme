@@ -1,6 +1,6 @@
 {
   "name": "wp-nordstarter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "WP-NordStarter",
   "author": "Wille <ville.ristimaki@nordsoftware.com>",
   "private": true,
@@ -20,7 +20,7 @@
   },
   "config": {
     "port": 3000,
-    "devUrl": "http://wpdemo.dev",
+    "devUrl": "http://nordstarter.dev",
     "entry": {
       "main": [
         "./assets/scripts/main.js",
@@ -38,7 +38,7 @@
   "scripts": {
     "start": "webpack --config assets/webpack/development.js --colors --progress --watch",
     "prod": "webpack --config assets/webpack/production.js --progress",
-    "lint": "eslint assets/scripts assets/webpack",
+    "lint": "eslint assets/scripts",
     "test": "npm run lint -s",
     "validate:dev": "webpack-validator assets/webpack/development.js",
     "validate:prod": "webpack-validator assets/webpack/production.js"
@@ -72,6 +72,7 @@
     "eslint-plugin-html": "^1.5.5",
     "eslint-plugin-import": "^2.1.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.7.1",
     "exports-loader": "^0.6.3",
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "favicons-webpack-plugin": "0.0.7",
@@ -85,7 +86,6 @@
     "node-sass": "^3.11.1",
     "optimize-css-assets-webpack-plugin": "^1.3.0",
     "postcss-loader": "^1.1.0",
-    "prerender-spa-plugin": "^1.3.0",
     "qs": "^6.3.0",
     "require-dir": "^0.3.1",
     "resolve-url-loader": "^1.6.0",
