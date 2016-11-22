@@ -26,12 +26,12 @@ function nord_theme() {
  */
 function nord_set_imagesizes() {
     return [
-        [
-            'name'   => 'article_lift',
-            'width'  => 360,
-            'height' => 200,
-            'crop'   => true
-        ]
+        //[
+        //    'name'   => 'article_lift',
+        //    'width'  => 360,
+        //    'height' => 200,
+        //    'crop'   => true
+        //]
     ];
 }
 
@@ -99,6 +99,11 @@ if ( ! function_exists( 'nord_setup' ) ) :
         require_files( dirname( __FILE__ ) . '/library/functions' );
 
         /**
+         * Hooks
+         */
+        require_files( dirname( __FILE__ ) . '/library/hooks' );
+
+        /**
          * Theme supports
          */
         if ( function_exists( 'add_theme_support' ) ) {
@@ -112,8 +117,10 @@ if ( ! function_exists( 'nord_setup' ) ) :
         /**
          * Register custom imagesizes
          */
-        foreach ( nord_set_imagesizes() as $size ) {
-            add_image_size( $size['name'], $size['width'], $size['height'], $size['crop'] );
+        if ( ! empty( nord_set_imagesizes() ) ) {
+            foreach ( nord_set_imagesizes() as $size ) {
+                add_image_size( $size['name'], $size['width'], $size['height'], $size['crop'] );
+            }
         }
 
     }
@@ -158,7 +165,7 @@ add_action( 'admin_head', 'nord_admin_style' );
 add_action( 'admin_enqueue_scripts', function () {
     wp_enqueue_script(
         'nord-admin',
-        asset_uri( 'scripts/admin.js' ),
+        asset_uri( 'scripts/admin.min.js' ),
         [ 'jquery' ],
         nord_theme()->get( 'Version' )
     );
@@ -181,7 +188,7 @@ add_action( 'wp_enqueue_scripts', function () {
      */
     wp_enqueue_script(
         'nord-theme',
-        asset_uri( 'scripts/main.js' ),
+        asset_uri( 'scripts/main.min.js' ),
         [ 'jquery' ],
         nord_theme()->get( 'Version' ),
         true
@@ -213,11 +220,11 @@ add_filter( 'upload_mimes', function ( $mimes ) {
  * @return mixed|void
  */
 
-add_filter( 'rest_url_prefix', function ( $prefix ) {
+add_filter( 'rest_url_prefix', function () {
     return 'api';
 } );
 
-add_filter( 'json_url_prefix', function ( $prefix ) {
+add_filter( 'json_url_prefix', function () {
     return 'api';
 } );
 
