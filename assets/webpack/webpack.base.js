@@ -6,9 +6,8 @@ var config = require('../../package.json').config;
 
 var isProduction = !!((argv.env && argv.env.production) || argv.p);
 var sourceMapQueryStr = !isProduction ? '+sourceMap' : '-sourceMap';
-var publicPath = `/${path.dirname(process.cwd()).split(path.sep).slice(-2).concat(path.basename(process.cwd())).join('/')}/`;
+var publicPath = `/${path.dirname(process.cwd()).split(path.sep).slice(-2).concat(path.basename(process.cwd())).join('/')}/dist/`;
 var entries = {};
-
 Object.keys(config.entry).forEach(function (id) {
   entries[id] = config.entry[id];
 });
@@ -25,7 +24,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.html'],
     alias: {
-      src: path.resolve(__dirname, '../src'),
+      src: path.resolve(__dirname, '../'),
       assets: path.resolve(__dirname, '../assets')
     },
   },
@@ -54,7 +53,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'eslint',
-        include: path.resolve(__dirname, '../src'),
+        include: path.resolve(__dirname, '../'),
         exclude: /node_modules/
       },
       {
@@ -70,7 +69,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        // include: path.resolve(__dirname, 'assets'),
+        include: path.resolve(__dirname, '../'),
         loader: ExtractTextPlugin.extract({
           fallbackLoader: 'style',
           loader: [
@@ -81,7 +80,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        // include: path.resolve(__dirname, '../assets'),
+        include: path.resolve(__dirname, '../'),
         loader: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
           loader: [
@@ -94,7 +93,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|xml|json)$/,
-        include: path.resolve(__dirname, '../src'),
+        include: path.resolve(__dirname, '../'),
         loaders: [
           `file?${qs.stringify({
             name: '[path][name].[ext]',
@@ -103,18 +102,18 @@ module.exports = {
       },
       {
         test: /\.(ttf|eot)$/,
-        include: path.resolve(__dirname, '../src'),
+        include: path.resolve(__dirname, '../'),
         loader: `file?${qs.stringify({
-          name: '[path][name].[ext]'
+          name: 'vendor/[name].[ext]'
         })}`
       },
       {
         test: /\.woff2?$/,
-        include: path.resolve(__dirname, '../src'),
+        include: path.resolve(__dirname, '../'),
         loader: `url?${qs.stringify({
           limit: 10000,
           mimetype: 'application/font-woff',
-          name: '[path][name].[ext]'
+          name: 'vendor/[name].[ext]'
         })}`
       },
       {
