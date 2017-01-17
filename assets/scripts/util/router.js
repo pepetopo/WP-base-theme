@@ -31,7 +31,7 @@ export default class Router {
       .toLowerCase()
       .replace(/-/g, '_')
       .split(/\s+/)
-      .map(className => camelCase(className))
+      .map(camelCase)
       .forEach((className) => {
         this.fire(className);
         this.fire(className, 'finalize');
