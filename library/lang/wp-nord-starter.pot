@@ -380,5 +380,5 @@ msgid "http://nordsoftware.com"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Nord Sorftware"
+msgid "Nord Software"
 msgstr ""
