@@ -16,9 +16,9 @@
   "themeHeader": [
     "/*",
     "Theme Name: WP-NordStarter",
-    "Theme URI: http://nordsoftware.com",
-    "Author: Nord Sorftware",
-    "Author URI: http://nordsoftware.com",
+    "Theme URI: https://www.nordsoftware.com",
+    "Author: Nord Software",
+    "Author URI: https://www.nordsoftware.com",
     "Description: WP-NordStarter",
     "Version: 1.0",
     "License: GNU General Public License v2 or later",
