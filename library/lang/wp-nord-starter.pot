@@ -376,7 +376,7 @@ msgstr ""
 
 #. Theme URI of the plugin/theme
 #. Author URI of the plugin/theme
-msgid "http://nordsoftware.com"
+msgid "https://www.nordsoftware.com"
 msgstr ""
 
 #. Author of the plugin/theme
