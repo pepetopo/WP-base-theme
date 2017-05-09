@@ -6,3 +6,6 @@ bower_components
 
 # Sourcemaps
 *.map
+
+# mac created .idea files
+.idea
