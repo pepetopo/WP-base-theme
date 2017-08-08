@@ -10,23 +10,23 @@
 
 .aligncenter {
   display: block;
-  margin: ($base-line-height / 2) auto;
+  margin: ($line-height-computed / 2) auto;
 }
 
 .alignleft,
 .alignright {
-  margin-bottom: ($base-line-height / 2);
+  margin-bottom: ($line-height-computed / 2);
 }
 
-@media #{$medium-up}{
+@media (min-width: $screen-md-min) {
   // Only float if not on an extra small device
   .alignleft {
     float: left;
-    margin-right: ($base-line-height / 2);
+    margin-right: ($line-height-computed / 2);
   }
   .alignright {
     float: right;
-    margin-left: ($base-line-height / 2);
+    margin-left: ($line-height-computed / 2);
   }
 }
 

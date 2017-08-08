@@ -1,5 +1,3 @@
-(function ($) {
-
-  var nord = {}
-
-})(jQuery);
+(function admin() {
+  // Do your magig...
+}());
