@@ -3,7 +3,7 @@
 /**
  * Widgetized areas
  *
- * @package NordStarter
+ * @package Digia WP-Base
  *
  */
 

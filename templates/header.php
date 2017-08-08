@@ -3,7 +3,7 @@
 /**
  * The main Header template
  *
- * @package NordStarter
+ * @package Digia WP-Base
  */
 
 ?>
@@ -26,4 +26,4 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php do_action( 'nord_after_body' ); ?>
+<?php do_action( 'digia_after_body' ); ?>

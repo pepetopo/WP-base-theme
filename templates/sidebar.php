@@ -3,7 +3,7 @@
 /**
  * The main sidebar-wrapper
  *
- * @package NordStarter
+ * @package Digia WP-Base
  */
 
 get_header();

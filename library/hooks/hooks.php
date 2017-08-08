@@ -39,13 +39,13 @@ add_filter( 'tiny_mce_before_init', function ( $init ) {
 /**
  * Add TagManager-script (if defined)
  *
- * @hook nord_after_body
+ * @hook digia_after_body
  */
-add_action( 'nord_after_body', function () {
-    $options = get_option( 'nord_general_options' );
+add_action( 'digia_after_body', function () {
+    $options = get_option( 'digia_general_options' );
 
-    if ( ! empty( $options['nord_tagmanager'] ) ) :
-        echo $options['nord_tagmanager'];
+    if ( ! empty( $options['digia_tagmanager'] ) ) :
+        echo $options['digia_tagmanager'];
     endif;
 } );
 

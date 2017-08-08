@@ -3,7 +3,7 @@
 /**
  * A Dummy template
  *
- * @package NordStarter
+ * @package Digia WP-Base
  *
  * Template Name: Dummy-template
  * Description: Dummy-template

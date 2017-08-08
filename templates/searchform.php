@@ -3,7 +3,7 @@
 /**
  * The main search-form wrapper
  *
- * @package NordStarter
+ * @package Digia WP-Base
  */
 
 ?>

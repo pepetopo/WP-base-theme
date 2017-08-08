@@ -8,7 +8,7 @@ class Settings {
 	 * Default Option key
 	 * @var string
 	 */
-	private $key = 'nord_options';
+	private $key = 'digia_options';
 
 	/**
 	 * Array of metaboxes/fields
@@ -120,15 +120,15 @@ class Settings {
 		 * General options
 		 */
 		$this->option_metabox[] = [
-			'id'         => 'nord_general_options',
+			'id'         => 'digia_general_options',
 			'title'      => __( 'General options', TEXT_DOMAIN ),
-			'show_on'    => [ 'key' => 'options-page', 'value' => [ 'nord_general_options' ], ],
+			'show_on'    => [ 'key' => 'options-page', 'value' => [ 'digia_general_options' ], ],
 			'show_names' => true,
 			'fields'     => [
 				[
 					'name'    => __( 'Tag-manager', TEXT_DOMAIN ),
 					'desc'    => __( 'Add here the full Tag-manager -snippet.', TEXT_DOMAIN ),
-					'id'      => 'nord_tagmanager',
+					'id'      => 'digia_tagmanager',
 					'default' => '',
 					'type'    => 'textarea_code',
 				],
@@ -136,7 +136,7 @@ class Settings {
 					'name'    => __( 'Default post image', TEXT_DOMAIN ),
 					'desc'    => __( 'define default post image if no images are attached to post / page',
 						TEXT_DOMAIN ),
-					'id'      => 'nord_default_image',
+					'id'      => 'digia_default_image',
 					'default' => '',
 					'type'    => 'file',
 				],
@@ -144,7 +144,7 @@ class Settings {
 		];
 
 		$this->option_metabox[] = [
-			'id'         => 'nord_advanced_options',
+			'id'         => 'digia_advanced_options',
 			'title'      => __( 'Advanced Settings', TEXT_DOMAIN ),
 			'show_on'    => [ 'key' => 'options-page', 'value' => [ 'advanced_options' ], ],
 			'show_names' => true,
@@ -152,7 +152,7 @@ class Settings {
 				[
 					'name'    => __( 'Some code-area', TEXT_DOMAIN ),
 					'desc'    => __( 'Add here some code, which will be rendered somewhere', TEXT_DOMAIN ),
-					'id'      => 'nord_codearea',
+					'id'      => 'digia_codearea',
 					'default' => '',
 					'type'    => 'textarea_code',
 				],

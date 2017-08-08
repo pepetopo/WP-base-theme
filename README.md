@@ -1,19 +1,19 @@
-# WP NordStarter
+# Digia WP-Base
 
 **NOTE!** Pretty much everything here is about to change...
 
 ## Installation/Usage
 
 1. Clone the repo to WP `themes`-dir, rename the cloned dir, `cd` into and remove `.git`
-2. Search-and-replace all occurences on `NordStarter` (the package name) and `nord_` (the function-prefix) to something project-specific
+2. Search-and-replace all occurences on `Digia WP-Base` (the package name) and `digia_` (the function-prefix) to something project-specific
 3. Change `package.json` config-section to suit your needs:
 * `devUrl`: The development URL where webpack will be proxied to
 * `proxyUrl`: accessible URL which BrowserSync watches
-* `entry`: Scripts & styles which will be compiled to `/dist`-folder. Each entry will be compiled with the name specified with the objects `key`. 
+* `entry`: Scripts & styles which will be compiled to `/dist`-folder. Each entry will be compiled with the name specified with the objects `key`.
 
 ```json
 "config": {
-  "devUrl": "http://nordstarter.dev",
+  "devUrl": "http://digiawpbase.dev",
   "proxyUrl": "http://localhost:3000",
   "entry": {
     "main": [
@@ -33,7 +33,7 @@
 
 4. Run `npm install` to install front-end-depencies
 5. Run `npm start` to start `Webpack` to watch & rebuild on asset changes (You have to configure the configs `devUrl` to correctly proxy to `http://localhost:3000`)
-6. To build for production, run `npm run prod` which compresses the scripts & styles, disables sourcemaps, copies images from `assets/images` to `dist/images` and creates most common favicons automatically to `icons`-subfolder.  
+6. To build for production, run `npm run prod` which compresses the scripts & styles, disables sourcemaps, copies images from `assets/images` to `dist/images` and creates most common favicons automatically to `icons`-subfolder.
 
 
 #### Available npm-scripts:

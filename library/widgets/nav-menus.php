@@ -3,13 +3,13 @@
 /**
  * WP-nav-menus
  *
- * @package NordStarter
+ * @package Digia WP-Base
  */
 
 /**
  * Main menu
  */
-function nord_main_menu() {
+function digia_main_menu() {
     wp_nav_menu( [
         'theme_location'  => 'top_nav',
         'container'       => false,
@@ -25,7 +25,7 @@ function nord_main_menu() {
         'link_after'      => '',
         'items_wrap'      => '%3$s',
         'depth'           => 4,
-        'walker'          => new Nord\WP_navwalker
+        'walker'          => new DigiaWP\WP_navwalker
     ] );
 }
 

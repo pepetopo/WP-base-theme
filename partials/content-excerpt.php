@@ -3,7 +3,7 @@
 /**
  * The main template for listing articles on index.php
  *
- * @package NordStarter
+ * @package Digia WP-Base
  *
  */
 

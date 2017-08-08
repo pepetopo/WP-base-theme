@@ -3,7 +3,7 @@
 /**
  * The main template for search-results
  *
- * @package NordStarter
+ * @package Digia WP-Base
  *
  */
 

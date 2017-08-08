@@ -3,14 +3,14 @@
 /**
  * The main search-wrapper
  *
- * @package NordStarter
+ * @package Digia WP-Base
  */
 
 get_header();
 
 ?>
 
-<?php do_action( 'nord_before_page' ); ?>
+<?php do_action( 'digia_before_page' ); ?>
 
 <?php if ( have_posts() ) : ?>
 	<?php printf( __( 'Search Results for: %s', TEXT_DOMAIN ), '<span>' . get_search_query() . '</span>' ); ?>

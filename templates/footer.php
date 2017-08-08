@@ -3,7 +3,7 @@
 /**
  * The main footer-template
  *
- * @package NordStarter
+ * @package Digia WP-Base
  */
 
 ?>

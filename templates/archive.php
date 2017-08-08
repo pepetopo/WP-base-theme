@@ -3,14 +3,14 @@
 /**
  * The main archive-template
  *
- * @package NordStarter
+ * @package Digia WP-Base
  */
 
 get_header();
 
 ?>
 
-<?php do_action( 'nord_before_page' ); ?>
+<?php do_action( 'digia_before_page' ); ?>
 
 	<section>
 		<h1><?php echo get_the_archive_title(); ?></h1>

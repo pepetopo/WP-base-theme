@@ -1,11 +1,11 @@
 <?php
 
-use Nord\Utils;
+use DigiaWP\Utils;
 
 /**
  * Helper-functions
  *
- * @package NordStarter
+ * @package Digia WP-Base
  *
  */
 

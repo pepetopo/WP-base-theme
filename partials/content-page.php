@@ -3,7 +3,7 @@
 /**
  * The main template for page
  *
- * @package NordStarter
+ * @package Digia WP-Base
  *
  */
 

@@ -3,7 +3,7 @@
 /**
  * Main functions and definitions
  *
- * @package NordStarter
+ * @package Digia WP-Base
  */
 
 /**
@@ -15,7 +15,7 @@ require dirname( __FILE__ ) . '/library/functions/helpers.php';
  * Set theme name which will be referenced from style & script registrations
  * @return WP_Theme
  */
-function nord_theme() {
+function digia_theme() {
     return wp_get_theme();
 }
 
@@ -24,7 +24,7 @@ function nord_theme() {
  *
  * @return array
  */
-function nord_set_imagesizes() {
+function digia_set_imagesizes() {
     return [
         //[
         //    'name'   => 'article_lift',
@@ -38,14 +38,14 @@ function nord_set_imagesizes() {
 /**
  * If defined, the feed will be shown on admin dashboard
  */
-define( 'FEED_URI', 'http://omnipartners.fi/feed' );
+// define( 'FEED_URI', '' );
 
 /**
  * Define Translation domain which will be used on WP __() & _e() -functions
  *
  * note: change also the one on style.css also
  */
-define( 'TEXT_DOMAIN', 'nord' );
+define( 'TEXT_DOMAIN', 'digia' );
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -57,9 +57,9 @@ if ( ! isset( $content_width ) ) {
 /**
  * Set up theme defaults and register support for various WordPress features.
  */
-if ( ! function_exists( 'nord_setup' ) ) :
+if ( ! function_exists( 'digia_setup' ) ) :
 
-    function nord_setup() {
+    function digia_setup() {
 
         global $cap, $content_width;
 
@@ -117,27 +117,27 @@ if ( ! function_exists( 'nord_setup' ) ) :
         /**
          * Register custom imagesizes
          */
-        if ( ! empty( nord_set_imagesizes() ) ) {
-            foreach ( nord_set_imagesizes() as $size ) {
+        if ( ! empty( digia_set_imagesizes() ) ) {
+            foreach ( digia_set_imagesizes() as $size ) {
                 add_image_size( $size['name'], $size['width'], $size['height'], $size['crop'] );
             }
         }
 
     }
 
-endif; // nord_setup
+endif; // digia_setup
 
-add_action( 'after_setup_theme', 'nord_setup' );
+add_action( 'after_setup_theme', 'digia_setup' );
 
 /**
  * Add feed (if defined) to dashboard
  */
 add_action( 'wp_dashboard_setup', function () {
     if ( defined( 'FEED_URI' ) ) {
-        add_meta_box( 'dashboard_custom_feed', 'Feed', 'nord_feed', 'dashboard', 'side', 'low' );
+        add_meta_box( 'dashboard_custom_feed', 'Feed', 'digia_feed', 'dashboard', 'side', 'low' );
     }
 
-    function nord_feed() {
+    function digia_feed() {
         echo '<div class="rss-widget">';
         wp_widget_rss_output( [
             'url'          => FEED_URI,
@@ -155,19 +155,19 @@ add_action( 'wp_dashboard_setup', function () {
 /**
  * Add admin scripts & styles
  */
-function nord_admin_style() {
+function digia_admin_style() {
     echo '<link rel="stylesheet" href="' . asset_uri( 'styles/admin.css' ) . '" type="text/css" media="all" />';
 }
 
-add_action( 'login_head', 'nord_admin_style' );
-add_action( 'admin_head', 'nord_admin_style' );
+add_action( 'login_head', 'digia_admin_style' );
+add_action( 'admin_head', 'digia_admin_style' );
 
 add_action( 'admin_enqueue_scripts', function () {
     wp_enqueue_script(
         'nord-admin',
         asset_uri( 'scripts/admin.min.js' ),
         [ 'jquery' ],
-        nord_theme()->get( 'Version' )
+        digia_theme()->get( 'Version' )
     );
 } );
 
@@ -175,7 +175,7 @@ add_action( 'admin_enqueue_scripts', function () {
  * Add text to theme footer
  */
 add_filter( 'admin_footer_text', function () {
-    return '<span id="footer-thankyou">' . nord_theme()->Name . ' by: <a href="' . nord_theme()->AuthorURI . '" target="_blank">' . nord_theme()->Author . '</a><span>';
+    return '<span id="footer-thankyou">' . digia_theme()->Name . ' by: <a href="' . digia_theme()->AuthorURI . '" target="_blank">' . digia_theme()->Author . '</a><span>';
 } );
 
 /**
@@ -190,7 +190,7 @@ add_action( 'wp_enqueue_scripts', function () {
         'nord-theme',
         asset_uri( 'scripts/main.min.js' ),
         [ 'jquery' ],
-        nord_theme()->get( 'Version' ),
+        digia_theme()->get( 'Version' ),
         true
     );
 
@@ -201,7 +201,7 @@ add_action( 'wp_enqueue_scripts', function () {
         'nord-style',
         asset_uri( 'styles/main.css' ),
         [],
-        nord_theme()->get( 'Version' )
+        digia_theme()->get( 'Version' )
     );
 } );
 
