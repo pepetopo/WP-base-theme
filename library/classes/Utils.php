@@ -1,6 +1,6 @@
 <?php
 
-namespace Nord;
+namespace DigiaWP;
 
 class Utils {
 
@@ -190,7 +190,7 @@ class Utils {
 	 * @return string
 	 */
 	public function get_image_uri() {
-		return get_template_directory_uri() . '/assets/build/images';
+		return asset_uri('images');
 	}
 
 	/**
@@ -201,7 +201,7 @@ class Utils {
 	 * @return array|false
 	 */
 	public function get_default_image( $size = 'full' ) {
-		$image_id = isset( get_option( 'nord_general_options' )['nord_default_image_id'] ) ? get_option( 'nord_general_options' )['nord_default_image_id'] : null;
+		$image_id = isset( get_option( 'digia_wp_base_general_options' )['digia_wp_base_default_image_id'] ) ? get_option( 'digia_wp_base_general_options' )['digia_wp_base_default_image_id'] : null;
 
 		return wp_get_attachment_image_src( $image_id, $size )[0];
 	}

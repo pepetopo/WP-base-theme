@@ -1,6 +1,8 @@
 <?php
 
-namespace Nord;
+namespace DigiaWP;
+
+use Walker_Nav_Menu;
 
 /**
  * Custom Navigation Walker that uses BEM naming convention.
@@ -33,7 +35,7 @@ namespace Nord;
  *
  * @uses Walker_Nav_Menu
  */
-class WP_navwalker extends \Walker_Nav_Menu {
+class WP_navwalker extends Walker_Nav_Menu {
 
     private $custom_prefix;
 
@@ -52,7 +54,7 @@ class WP_navwalker extends \Walker_Nav_Menu {
      *
      * @see Walker::start_lvl()
      */
-    public function start_lvl( &$output, $depth = 0, $args = [ ] ) {
+    public function start_lvl( &$output, $depth = 0, $args = [] ) {
         $indent = str_repeat( "\t", $depth );
         $output .= "\n$indent<ul class=\"{$this->custom_prefix}__submenu dropdown\">\n";
     }
@@ -62,7 +64,7 @@ class WP_navwalker extends \Walker_Nav_Menu {
      *
      * @see Walker::start_el()
      */
-    public function start_el( &$output, $item, $depth = 0, $args = [ ], $id = 0 ) {
+    public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
         $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
         if ( strcasecmp( $item->attr_title, 'divider' ) == 0 ) {
@@ -165,7 +167,7 @@ class WP_navwalker extends \Walker_Nav_Menu {
              */
             $output .= $indent . '<li' . $class_names . '>';
 
-            $atts           = [ ];
+            $atts           = [];
             $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
             $atts['target'] = ! empty( $item->target ) ? $item->target : '';
             $atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';

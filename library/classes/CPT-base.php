@@ -134,7 +134,7 @@ class CPT {
      * @param mixed $post_type_names The name(s) of the post type, accepts (post type name, slug, plural, singular).
      * @param array $options         User submitted options.
      */
-    function __construct( $post_type_names, $options = [ ] ) {
+    function __construct( $post_type_names, $options = [] ) {
 
         // Check if post type names is a string or an array.
         if ( is_array( $post_type_names ) ) {
@@ -281,7 +281,7 @@ class CPT {
      *
      * @param string  $action        Name of the action.
      * @param string  $function      Function to hook that will run on action.
-     * @param integet $priority      Order in which to execute the function, relation to other functions hooked to this
+     * @param integer $priority      Order in which to execute the function, relation to other functions hooked to this
      *                               action.
      * @param integer $accepted_args The number of arguments the function accepts.
      */
@@ -532,12 +532,14 @@ class CPT {
     /**
      * Register taxonomy
      *
-     * @see http://codex.wordpress.org/Function_Reference/register_taxonomy
+     * @see      http://codex.wordpress.org/Function_Reference/register_taxonomy
      *
-     * @param string $taxonomy_name The slug for the taxonomy.
-     * @param array  $options       Taxonomy options.
+     * @param       $taxonomy_names
+     * @param array $options Taxonomy options.
+     *
+     * @internal param string $taxonomy_name The slug for the taxonomy.
      */
-    function register_taxonomy( $taxonomy_names, $options = [ ] ) {
+    function register_taxonomy( $taxonomy_names, $options = [] ) {
 
         // Post type defaults to $this post type if unspecified.
         $post_type = $this->post_type_name;
@@ -702,7 +704,7 @@ class CPT {
         // If no user columns have been specified, add taxonomies
         if ( ! isset( $this->columns ) ) {
 
-            $new_columns = [ ];
+            $new_columns = [];
 
             // determine which column to add custom taxonomies after
             if ( is_array( $this->taxonomies ) && in_array( 'post_tag',
@@ -785,7 +787,7 @@ class CPT {
                 // If we have terms.
                 if ( ! empty( $terms ) ) {
 
-                    $output = [ ];
+                    $output = [];
 
                     // Loop through each term, linking to the 'edit posts' page for the specific term.
                     foreach ( $terms as $term ) {
@@ -889,7 +891,7 @@ class CPT {
      *
      * @param array $filters An array of taxonomy filters to display.
      */
-    function filters( $filters = [ ] ) {
+    function filters( $filters = [] ) {
 
         $this->filters = $filters;
     }
@@ -1007,7 +1009,7 @@ class CPT {
      *
      * @param array $columns An array of columns that are sortable.
      */
-    function sortable( $columns = [ ] ) {
+    function sortable( $columns = [] ) {
 
         // Assign user defined sortable columns to object variable.
         $this->sortable = $columns;
@@ -1027,6 +1029,7 @@ class CPT {
      *
      * @param array $columns Columns to be sortable.
      *
+     * @return array
      */
     function make_columns_sortable( $columns ) {
 
@@ -1157,6 +1160,8 @@ class CPT {
      * Internal function that modifies the post type names in updated messages
      *
      * @param array $messages an array of post updated messages
+     *
+     * @return array
      */
     function updated_messages( $messages ) {
 
@@ -1190,7 +1195,11 @@ class CPT {
      *
      * Internal function that modifies the post type names in bulk updated messages
      *
-     * @param array $messages an array of bulk updated messages
+     * @param $bulk_messages
+     * @param $bulk_counts
+     *
+     * @return mixed
+     * @internal param array $messages an array of bulk updated messages
      */
     function bulk_updated_messages( $bulk_messages, $bulk_counts ) {
 

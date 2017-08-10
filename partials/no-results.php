@@ -3,7 +3,7 @@
 /**
  * The general No results -template
  *
- * @package NordStarter
+ * @package Digia WP-Base
  *
  */
 
