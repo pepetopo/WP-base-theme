@@ -31,6 +31,7 @@ const schema = {
       message: 'Error, you must use alpha-numeric (a-z, 0-9) name',
       required: true
     },
+    // TODO: Dis =>
     // framework: {
     //   description: blue("Select which CSS-framework to use: \n 1) Bootstrap \n 2) Foundation \n 3) None \n"),
     //   pattern: /^[123]+$/,
