@@ -40,8 +40,7 @@
     "start": "webpack --config assets/webpack/development.js --colors --progress --watch",
     "prod": "webpack --config assets/webpack/production.js --progress",
     "config": "node ./.bin/config",
-    "lint": "eslint assets/scripts",
-    "test": "npm run lint -s"
+    "test": "eslint assets/scripts"
   },
   "engines": {
     "node": ">= 6.9"
