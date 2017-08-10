@@ -12,6 +12,7 @@ bower_components
 
 # cache
 .cache-loader
+.cache
 
 # log-files
 *.log
