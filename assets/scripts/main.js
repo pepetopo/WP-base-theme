@@ -6,13 +6,18 @@ import 'fastclick';
 // import local dependencies
 import Router from './util/router';
 import common from './routes/Common';
+import home from './routes/Home';
 
-// Use this variable to set up the common and page specific functions. If you
-// rename this variable, you will also need to rename the namespace below.
-const routes = {
+/**
+ *
+ * @type {Router}
+ */
+const router = new Router({
   // All pages
   common,
-};
+  // Home specific
+  home,
+});
 
 // Load Events
-document.addEventListener('DOMContentLoaded', () => new Router(routes).loadEvents());
+$(document).ready(() => router.loadEvents());
