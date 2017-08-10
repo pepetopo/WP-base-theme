@@ -8,7 +8,7 @@
   display: inline-block;
 
   &.current {
-    >a {
+    > a {
       background-color: #FFF;
       color: #000;
       &:hover, &:focus, &:active {
@@ -19,7 +19,7 @@
     }
   }
 
-  >a {
+  > a {
     color: #FFF;
     padding: 0.5rem 1rem;
     background-color: $brand-primary;
