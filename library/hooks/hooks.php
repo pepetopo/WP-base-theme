@@ -39,13 +39,13 @@ add_filter( 'tiny_mce_before_init', function ( $init ) {
 /**
  * Add TagManager-script (if defined)
  *
- * @hook digia_after_body
+ * @hook digia_wp_base_after_body
  */
-add_action( 'digia_after_body', function () {
-    $options = get_option( 'digia_general_options' );
+add_action( 'digia_wp_base_after_body', function () {
+    $options = get_option( 'digia_wp_base_general_options' );
 
-    if ( ! empty( $options['digia_tagmanager'] ) ) :
-        echo $options['digia_tagmanager'];
+    if ( ! empty( $options['digia_wp_base_tagmanager'] ) ) :
+        echo $options['digia_wp_base_tagmanager'];
     endif;
 } );
 

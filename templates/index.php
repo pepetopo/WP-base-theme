@@ -10,7 +10,7 @@ get_header();
 
 ?>
 
-<?php do_action( 'digia_before_page' ); ?>
+<?php do_action( 'digia_wp_base_before_page' ); ?>
 
 <section>
 	<h1><?php echo get_the_archive_title(); ?></h1>

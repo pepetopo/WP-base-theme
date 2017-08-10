@@ -10,7 +10,7 @@ get_header();
 
 ?>
 
-<?php do_action( 'digia_before_page' ); ?>
+<?php do_action( 'digia_wp_base_before_page' ); ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	<?php get_template_part( 'partials/content', get_post_type() ); ?>

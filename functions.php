@@ -15,7 +15,7 @@ require dirname( __FILE__ ) . '/library/functions/helpers.php';
  * Set theme name which will be referenced from style & script registrations
  * @return WP_Theme
  */
-function digia_theme() {
+function digia_wp_base_theme() {
     return wp_get_theme();
 }
 
@@ -24,7 +24,7 @@ function digia_theme() {
  *
  * @return array
  */
-function digia_set_imagesizes() {
+function digia_wp_base_set_imagesizes() {
     return [
         //[
         //    'name'   => 'article_lift',
@@ -45,7 +45,7 @@ function digia_set_imagesizes() {
  *
  * note: change also the one on style.css also
  */
-define( 'TEXT_DOMAIN', 'digia' );
+define( 'TEXT_DOMAIN', 'digia_wp_base' );
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -57,9 +57,9 @@ if ( ! isset( $content_width ) ) {
 /**
  * Set up theme defaults and register support for various WordPress features.
  */
-if ( ! function_exists( 'digia_setup' ) ) :
+if ( ! function_exists( 'digia_wp_base_setup' ) ) :
 
-    function digia_setup() {
+    function digia_wp_base_setup() {
 
         global $cap, $content_width;
 
@@ -117,27 +117,27 @@ if ( ! function_exists( 'digia_setup' ) ) :
         /**
          * Register custom imagesizes
          */
-        if ( ! empty( digia_set_imagesizes() ) ) {
-            foreach ( digia_set_imagesizes() as $size ) {
+        if ( ! empty( digia_wp_base_set_imagesizes() ) ) {
+            foreach ( digia_wp_base_set_imagesizes() as $size ) {
                 add_image_size( $size['name'], $size['width'], $size['height'], $size['crop'] );
             }
         }
 
     }
 
-endif; // digia_setup
+endif; // digia_wp_base_setup
 
-add_action( 'after_setup_theme', 'digia_setup' );
+add_action( 'after_setup_theme', 'digia_wp_base_setup' );
 
 /**
  * Add feed (if defined) to dashboard
  */
 add_action( 'wp_dashboard_setup', function () {
     if ( defined( 'FEED_URI' ) ) {
-        add_meta_box( 'dashboard_custom_feed', 'Feed', 'digia_feed', 'dashboard', 'side', 'low' );
+        add_meta_box( 'dashboard_custom_feed', 'Feed', 'digia_wp_base_feed', 'dashboard', 'side', 'low' );
     }
 
-    function digia_feed() {
+    function digia_wp_base_feed() {
         echo '<div class="rss-widget">';
         wp_widget_rss_output( [
             'url'          => FEED_URI,
@@ -155,19 +155,19 @@ add_action( 'wp_dashboard_setup', function () {
 /**
  * Add admin scripts & styles
  */
-function digia_admin_style() {
+function digia_wp_base_admin_style() {
     echo '<link rel="stylesheet" href="' . asset_uri( 'styles/admin.css' ) . '" type="text/css" media="all" />';
 }
 
-add_action( 'login_head', 'digia_admin_style' );
-add_action( 'admin_head', 'digia_admin_style' );
+add_action( 'login_head', 'digia_wp_base_admin_style' );
+add_action( 'admin_head', 'digia_wp_base_admin_style' );
 
 add_action( 'admin_enqueue_scripts', function () {
     wp_enqueue_script(
         'nord-admin',
         asset_uri( 'scripts/admin.min.js' ),
         [ 'jquery' ],
-        digia_theme()->get( 'Version' )
+        digia_wp_base_theme()->get( 'Version' )
     );
 } );
 
@@ -175,7 +175,7 @@ add_action( 'admin_enqueue_scripts', function () {
  * Add text to theme footer
  */
 add_filter( 'admin_footer_text', function () {
-    return '<span id="footer-thankyou">' . digia_theme()->Name . ' by: <a href="' . digia_theme()->AuthorURI . '" target="_blank">' . digia_theme()->Author . '</a><span>';
+    return '<span id="footer-thankyou">' . digia_wp_base_theme()->Name . ' by: <a href="' . digia_wp_base_theme()->AuthorURI . '" target="_blank">' . digia_wp_base_theme()->Author . '</a><span>';
 } );
 
 /**
@@ -190,7 +190,7 @@ add_action( 'wp_enqueue_scripts', function () {
         'nord-theme',
         asset_uri( 'scripts/main.min.js' ),
         [ 'jquery' ],
-        digia_theme()->get( 'Version' ),
+        digia_wp_base_theme()->get( 'Version' ),
         true
     );
 
@@ -201,7 +201,7 @@ add_action( 'wp_enqueue_scripts', function () {
         'nord-style',
         asset_uri( 'styles/main.css' ),
         [],
-        digia_theme()->get( 'Version' )
+        digia_wp_base_theme()->get( 'Version' )
     );
 } );
 

@@ -201,7 +201,7 @@ class Utils {
 	 * @return array|false
 	 */
 	public function get_default_image( $size = 'full' ) {
-		$image_id = isset( get_option( 'digia_general_options' )['digia_default_image_id'] ) ? get_option( 'digia_general_options' )['digia_default_image_id'] : null;
+		$image_id = isset( get_option( 'digia_wp_base_general_options' )['digia_wp_base_default_image_id'] ) ? get_option( 'digia_wp_base_general_options' )['digia_wp_base_default_image_id'] : null;
 
 		return wp_get_attachment_image_src( $image_id, $size )[0];
 	}

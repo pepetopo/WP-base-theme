@@ -26,4 +26,4 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php do_action( 'digia_after_body' ); ?>
+<?php do_action( 'digia_wp_base_after_body' ); ?>

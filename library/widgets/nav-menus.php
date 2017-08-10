@@ -9,7 +9,7 @@
 /**
  * Main menu
  */
-function digia_main_menu() {
+function digia_wp_base_main_menu() {
     wp_nav_menu( [
         'theme_location'  => 'top_nav',
         'container'       => false,
