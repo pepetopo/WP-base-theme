@@ -9,3 +9,9 @@ bower_components
 
 # mac created .idea files
 .idea
+
+# cache
+.cache-loader
+
+# log-files
+*.log

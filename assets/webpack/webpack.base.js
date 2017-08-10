@@ -1,13 +1,13 @@
-var path = require('path');
-var qs = require('qs');
-var argv = require('minimist')(process.argv.slice(2));
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var config = require('../../package.json').config;
+const path = require('path');
+const qs = require('qs');
+const argv = require('minimist')(process.argv.slice(2));
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const config = require('../../package.json').config;
 
-var isProduction = !!((argv.env && argv.env.production) || argv.p);
-var sourceMapQueryStr = !isProduction ? '+sourceMap' : '-sourceMap';
-var publicPath = `/${path.dirname(process.cwd()).split(path.sep).slice(-2).concat(path.basename(process.cwd())).join('/')}/dist/`;
-var entries = {};
+const isProduction = !!((argv.env && argv.env.production) || argv.p);
+const publicPath = `/${path.dirname(process.cwd()).split(path.sep).slice(-2).concat(path.basename(process.cwd())).join('/')}/dist/`;
+const entries = {};
+
 Object.keys(config.entry).forEach(function (id) {
   entries[id] = config.entry[id];
 });
@@ -30,12 +30,12 @@ module.exports = {
   },
   // TODO: FIXME! PLZ!
   // devServer: {
-  //   autoRewrite: true,
   //   inline: true,
+  //   port: config.port,
   //   proxy: {
   //     '*': {
   //       target: {
-  //         host: 'wpdemo.dev',
+  //         host: config.devUrl,
   //         protocol: 'http',
   //         port: 80
   //       },
@@ -49,81 +49,112 @@ module.exports = {
     jquery: 'jQuery'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loader: 'eslint',
         include: path.resolve(__dirname, '../'),
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: {
+          loader: 'eslint-loader'
+        }
       },
       {
         test: /\.js$/,
         exclude: [/(node_modules)(?![/|\\](bootstrap|foundation-sites))/],
-        loaders: [{
-          loader: 'babel',
-          query: {
-            presets: [[path.resolve('./node_modules/babel-preset-es2015'), { modules: false }]],
-            cacheDirectory: true,
-          }
-        }]
+        use: [
+          { loader: 'cache-loader' },
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [path.resolve('./node_modules/babel-preset-es2015'), { modules: false }]
+              ],
+              cacheDirectory: true
+            }
+          }]
       },
       {
         test: /\.css$/,
-        include: path.resolve(__dirname, '../'),
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style',
-          loader: [
-            `css?${sourceMapQueryStr}`,
-            // 'postcss',
-          ],
+          fallback: 'style-loader',
+          use: [
+            { loader: 'cache-loader' },
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: !isProduction
+              }
+            }],
         }),
       },
       {
         test: /\.scss$/,
         include: path.resolve(__dirname, '../'),
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: [
-            `css?${sourceMapQueryStr}`,
-            // 'postcss',
-            `resolve-url?${sourceMapQueryStr}`,
-            `sass?${sourceMapQueryStr}`,
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: !isProduction
+              }
+            },
+            {
+              loader: 'resolve-url-loader',
+              options: {
+                sourceMap: !isProduction
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: !isProduction
+              }
+            },
           ],
-        }),
+        })
       },
       {
         test: /\.(png|jpe?g|gif|svg|xml|json)$/,
         include: path.resolve(__dirname, '../'),
-        loaders: [
-          `file?${qs.stringify({
+        use: {
+          loader: 'file-loader',
+          options: {
             name: '[path][name].[ext]',
-          })}`
-        ]
+          }
+        },
       },
       {
         test: /\.(ttf|eot)$/,
-        include: path.resolve(__dirname, '../'),
-        loader: `file?${qs.stringify({
-          name: 'vendor/[name].[ext]'
-        })}`
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: 'vendor/[name].[ext]',
+          }
+        },
       },
       {
         test: /\.woff2?$/,
-        include: path.resolve(__dirname, '../'),
-        loader: `url?${qs.stringify({
-          limit: 10000,
-          mimetype: 'application/font-woff',
-          name: 'vendor/[name].[ext]'
-        })}`
+        use: {
+          loader: 'url-loader',
+          options: {
+            name: 'vendor/[name].[ext]',
+            limit: 10000,
+            mimetype: 'application/font-woff'
+          }
+        },
       },
       {
         test: /\.(ttf|eot|woff2?|png|jpe?g|gif|svg)$/,
-        include: /node_modules/,
-        loader: 'file',
-        query: {
-          name: 'vendor/[name].[ext]'
-        }
-      }
+        use: {
+          loader: 'url-loader',
+          options: {
+            name: 'vendor/[name].[ext]',
+            limit: 10000,
+            mimetype: 'application/font-woff'
+          }
+        },
+      },
     ]
   }
 };

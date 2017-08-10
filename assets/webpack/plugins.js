@@ -1,26 +1,26 @@
-var webpack = require('webpack');
-var path = require('path');
-var argv = require('minimist')(process.argv.slice(2));
-var autoprefixer = require('autoprefixer');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
-var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var ImageminPlugin = require('imagemin-webpack-plugin').default;
-var imageminMozjpeg = require('imagemin-mozjpeg');
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// var DashboardPlugin = require('webpack-dashboard/plugin');
+const webpack = require('webpack');
+const path = require('path');
+const argv = require('minimist')(process.argv.slice(2));
+const autoprefixer = require('autoprefixer');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// const DashboardPlugin = require('webpack-dashboard/plugin');
 
-var pkg = require('../../package.json');
+const pkg = require('../../package.json');
 
-var isProduction = !!((argv.env && argv.env.production) || argv.p);
+const isProduction = !!((argv.env && argv.env.production) || argv.p);
 
 /**
  * Common plugins
  * @type {*[]}
  */
-var commonPlugins = [
+const commonPlugins = [
   new CopyWebpackPlugin([
     {
       from: path.resolve(__dirname, '../images/**/*'),
@@ -86,7 +86,7 @@ var commonPlugins = [
  * Develop plugins
  * @type {Array.<*>}
  */
-var developPlugins = [
+const developPlugins = [
   // Disabled 'till the webpack-dev-server proxy is fixed :'(
   // new DashboardPlugin(),
   new BrowserSyncPlugin(
@@ -95,7 +95,7 @@ var developPlugins = [
       port: pkg.config.port,
       proxy: pkg.config.devUrl,
       open: false,
-      files: ['{library,partials,templates}/**/*.php', '*.php'],
+      files: ['{custom-templates,library,partials,templates}/**/*.php', '*.php'],
       logLevel: 'warn'
       // Don't notify abt reloading
       // notify: false,
@@ -104,16 +104,15 @@ var developPlugins = [
     }
   ),
   new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.NoErrorsPlugin()
+  new webpack.NoEmitOnErrorsPlugin()
 ];
 
 /**
  * Production plugins
  * @type {Array.<*>}
  */
-var productionPLugins = [
+const productionPLugins = [
   new WebpackCleanupPlugin(),
-  new webpack.optimize.DedupePlugin(),
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.optimize.UglifyJsPlugin({
     compressor: {
