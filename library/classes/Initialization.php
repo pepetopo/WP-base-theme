@@ -1,6 +1,6 @@
 <?php
 
-namespace Nord;
+namespace DigiaWP;
 
 class Initialization {
 

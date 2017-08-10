@@ -1,6 +1,6 @@
 <?php
 
-namespace Nord;
+namespace DigiaWP;
 
 	/**
 	 * Breadcrumb Trail - A breadcrumb menu script for WordPress.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Nord;
+namespace DigiaWP;
 
 use Walker_Nav_Menu;
 
