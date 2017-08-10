@@ -15,7 +15,7 @@ use DigiaWP\Utils;
  * @return string
  */
 function asset_uri( $filename ) {
-    return trailingslashit( get_template_directory_uri() ) . "dist/{$filename}";
+    return trailingslashit( get_template_directory_uri() ) . "assets/dist/{$filename}";
 }
 
 /**

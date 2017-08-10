@@ -1,7 +1,6 @@
-var merge = require('webpack-merge');
-
-var webpackBase = require('./webpack.base.js');
-var plugins = require('./plugins');
+const merge = require('webpack-merge');
+const webpackBase = require('./webpack.base.js');
+const plugins = require('./plugins');
 
 module.exports = merge(webpackBase, {
   plugins: plugins.production

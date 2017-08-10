@@ -15,7 +15,7 @@ Object.keys(config.entry).forEach(function (id) {
 module.exports = {
   entry: entries,
   output: {
-    path: path.resolve(__dirname, '../../dist'),
+    path: path.resolve(__dirname, '../../assets/dist'),
     publicPath: publicPath,
     filename: 'scripts/[name].min.js',
     sourceMapFilename: '[name].[hash].js.map',
