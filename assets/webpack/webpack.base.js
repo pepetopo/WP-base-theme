@@ -1,5 +1,4 @@
 const path = require('path');
-const qs = require('qs');
 const argv = require('minimist')(process.argv.slice(2));
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('../../package.json').config;
