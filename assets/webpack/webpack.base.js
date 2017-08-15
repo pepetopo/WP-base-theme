@@ -134,7 +134,7 @@ module.exports = {
         },
       },
       {
-        test: /\.woff2?$/,
+        test: /\.woff2(\?\S*)?$/,
         use: {
           loader: 'url-loader',
           options: {
