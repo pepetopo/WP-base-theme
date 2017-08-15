@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('../../package.json').config;
 
 const isProduction = !!((argv.env && argv.env.production) || argv.p);
-const publicPath = `/${path.dirname(process.cwd()).split(path.sep).slice(-2).concat(path.basename(process.cwd())).join('/')}/dist/`;
+const publicPath = `/${path.dirname(process.cwd()).split(path.sep).slice(-2).concat(path.basename(process.cwd())).join('/')}/assets/dist/`;
 const entries = {};
 
 Object.keys(config.entry).forEach(function (id) {
@@ -134,7 +134,7 @@ module.exports = {
         },
       },
       {
-        test: /\.woff2?$/,
+        test: /\.woff2(\?\S*)?$/,
         use: {
           loader: 'url-loader',
           options: {
