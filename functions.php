@@ -164,7 +164,7 @@ add_action( 'admin_head', 'digia_wp_base_admin_style' );
 
 add_action( 'admin_enqueue_scripts', function () {
     wp_enqueue_script(
-        'nord-admin',
+        'digia_admin',
         asset_uri( 'scripts/admin.min.js' ),
         [ 'jquery' ],
         digia_wp_base_theme()->get( 'Version' )
@@ -187,7 +187,7 @@ add_action( 'wp_enqueue_scripts', function () {
      * Main scripts file
      */
     wp_enqueue_script(
-        'nord-theme',
+        'digia_theme',
         asset_uri( 'scripts/main.min.js' ),
         [ 'jquery' ],
         digia_wp_base_theme()->get( 'Version' ),
@@ -198,7 +198,7 @@ add_action( 'wp_enqueue_scripts', function () {
      * Main style
      */
     wp_enqueue_style(
-        'nord-style',
+        'digia_style',
         asset_uri( 'styles/main.css' ),
         [],
         digia_wp_base_theme()->get( 'Version' )

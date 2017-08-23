@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: WP-Digia WP-Base\n"
+"Project-Id-Version: Digia WP-Base\n"
 "POT-Creation-Date: 2016-04-07 23:15+0300\n"
 "PO-Revision-Date: 2016-04-07 23:13+0300\n"
 "Last-Translator: \n"
@@ -371,14 +371,14 @@ msgstr ""
 
 #. Theme Name of the plugin/theme
 #. Description of the plugin/theme
-msgid "WP-Digia WP-Base"
+msgid "WP-Base"
 msgstr ""
 
 #. Theme URI of the plugin/theme
 #. Author URI of the plugin/theme
-msgid "https://www.nordsoftware.com"
+msgid "https://www.digia.com"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Nord Software"
+msgid "Digia"
 msgstr ""
