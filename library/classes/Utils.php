@@ -205,4 +205,19 @@ class Utils {
 
 		return wp_get_attachment_image_src( $image_id, $size )[0];
 	}
+    
+    /**
+    * Get first paragraph from text content.
+    *
+    * @param $text
+    *
+    * @return string
+    */
+    public function get_first_paragraph( $text ) {
+        $str = wpautop( $text );
+        $str = substr( $str, 0, strpos( $str, '</p>' ) + 4 );
+        $str = strip_tags($str, '<a><strong><em>');
+        $str = preg_replace( "/\[.*\]\s*/", "", $str );
+        return '<p>' . $str . '</p>';
+    }
 }
