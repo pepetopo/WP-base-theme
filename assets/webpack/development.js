@@ -4,6 +4,6 @@ const webpackBase = require('./webpack.base.js');
 const plugins = require('./plugins');
 
 module.exports = merge(webpackBase, {
-  devtool: '#eval-source-map',
+  devtool: 'inline-source-map',
   plugins: plugins.develop
 });
