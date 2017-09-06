@@ -27,23 +27,24 @@ module.exports = {
       assets: path.resolve(__dirname, '../assets')
     },
   },
-  // TODO: FIXME! PLZ!
-  // devServer: {
-  //   inline: true,
-  //   port: config.port,
-  //   proxy: {
-  //     '*': {
-  //       target: {
-  //         host: config.devUrl,
-  //         protocol: 'http',
-  //         port: 80
-  //       },
-  //       ignorePath: true,
-  //       changeOrigin: true,
-  //       secure: false
-  //     },
-  //   },
-  // },
+  devServer: {
+    host: 'localhost',
+    port: config.port,
+    overlay: {
+      errors: true,
+      warnings: true,
+    },
+    hotOnly: true,
+    proxy: {
+      '/': {
+        target: config.devUrl,
+        secure: false,
+        changeOrigin: true,
+        autoRewrite: true,
+      },
+    },
+    publicPath: `http://localhost:8080${publicPath}`,
+  },
   externals: {
     jquery: 'jQuery'
   },
@@ -74,7 +75,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
+        loader: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             { loader: 'cache-loader' },
@@ -84,12 +85,12 @@ module.exports = {
                 sourceMap: !isProduction
               }
             }],
-        }),
+        })),
       },
       {
         test: /\.scss$/,
         include: path.resolve(__dirname, '../'),
-        loader: ExtractTextPlugin.extract({
+        loader: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             {
@@ -111,7 +112,7 @@ module.exports = {
               }
             },
           ],
-        })
+        }))
       },
       {
         test: /\.(png|jpe?g|gif|svg|xml|json)$/,

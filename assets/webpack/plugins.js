@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 const argv = require('minimist')(process.argv.slice(2));
 const autoprefixer = require('autoprefixer');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
@@ -87,22 +86,7 @@ const commonPlugins = [
  * @type {Array.<*>}
  */
 const developPlugins = [
-  // Disabled 'till the webpack-dev-server proxy is fixed :'(
   // new DashboardPlugin(),
-  new BrowserSyncPlugin(
-    {
-      host: 'localhost',
-      port: pkg.config.port,
-      proxy: pkg.config.devUrl,
-      open: false,
-      files: ['{custom-templates,library,partials,templates}/**/*.php', '*.php'],
-      logLevel: 'warn'
-      // Don't notify abt reloading
-      // notify: false,
-      // Let webpack handle the reload
-      // codeSync: false,
-    }
-  ),
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.NoEmitOnErrorsPlugin()
 ];
