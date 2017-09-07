@@ -4,15 +4,16 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('../../package.json').config;
 
 const isProduction = !!((argv.env && argv.env.production) || argv.p);
+// A bit nonsense, yet works...
 const publicPath = `/${path.dirname(process.cwd()).split(path.sep).slice(-2).concat(path.basename(process.cwd())).join('/')}/assets/dist/`;
-const entries = {};
+const entry = {};
 
-Object.keys(config.entry).forEach(function (id) {
-  entries[id] = config.entry[id];
+Object.keys(config.entries).forEach(function (id) {
+  entry[id] = config.entries[id];
 });
 
 module.exports = {
-  entry: entries,
+  entry: entry,
   output: {
     path: path.resolve(__dirname, '../../assets/dist'),
     publicPath: publicPath,
@@ -37,7 +38,7 @@ module.exports = {
     hotOnly: true,
     proxy: {
       '/': {
-        target: config.devUrl,
+        target: config.proxyUrl,
         secure: false,
         changeOrigin: true,
         autoRewrite: true,

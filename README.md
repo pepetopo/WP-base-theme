@@ -7,14 +7,12 @@
 3. Run `yarn run config` to setup project
 4. Change `package.json` config-section to suit your needs:
 * `devUrl`: The development URL where webpack will be proxied to
-* `proxyUrl`: accessible URL which BrowserSync watches
-* `entry`: Scripts & styles which will be compiled to `/dist`-folder. Each entry will be compiled with the name specified with the objects `key`.
+* `entries`: Scripts & styles which will be compiled to `/dist`-folder. Each entry will be compiled with the name specified with the objects `key`.
 
 ```json
 "config": {
   "devUrl": "http://digiawpbase.dev",
-  "proxyUrl": "http://localhost:3000",
-  "entry": {
+  "entries": {
     "main": [
       "./scripts/main.js",
       "./styles/main.scss"
