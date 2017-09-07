@@ -20,9 +20,8 @@
   },
   "config": {
     "port": 3000,
-    "devUrl": "http://sandbox.dev",
-    "proxyUrl": "http://localhost:3000",
-    "entry": {
+    "proxyUrl": "http://sandbox.dev",
+    "entries": {
       "main": [
         "./assets/scripts/main.js",
         "./assets/styles/main.scss"
