@@ -37,7 +37,7 @@
     }
   },
   "scripts": {
-    "start": "webpack --config assets/webpack/development.js --colors --progress --watch",
+    "start": "webpack-dev-server --env development --config assets/webpack/development.js --colors --progress --hot --inline",
     "prod": "webpack --config assets/webpack/production.js --progress",
     "config": "node ./.bin/config",
     "test": "eslint assets/scripts"
